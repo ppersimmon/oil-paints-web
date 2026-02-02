@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
+import logoImg from '../../assets/images/logo/logo_ROSA.png';
 import MenuIcon from "../../assets/icons/menu.svg?react";
 import ArrowMenuIcon from "../../assets/icons/menu_arrow.svg?react";
 
@@ -17,7 +18,7 @@ const Header = () => {
 
             <div className="justify-self-center">
                 <Link to="/">
-                    <img src="src/assets/images/logo/logo_ROSA.png" className="h-8 w-auto" />
+                    <img src={logoImg} className="h-8 w-auto" />
                 </Link>
             </div>
 
@@ -32,7 +33,7 @@ const Header = () => {
 
         <div className="hidden lg:flex items-center justify-between py-4">
             <Link to="/" className="shrink-0">
-                <img src="src/assets/images/logo/logo_ROSA.png" alt="" className="h-10 w-auto" />
+                <img src={logoImg} className="h-10 w-auto" />
             </Link>
 
             <nav className="flex gap-x-8">

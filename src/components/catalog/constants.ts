@@ -1,8 +1,13 @@
-  export const products = [
-    { id: 1, image: "src/assets/images/catalog_item1.jpg" },
-    { id: 2, image: "src/assets/images/catalog_item2.jpg" },
-    { id: 3, image: "src/assets/images/catalog_item3.jpg" },
-    { id: 4, image: "src/assets/images/catalog_item4.jpg" },
-  ];
+import catalogItem1 from "../../assets/images/catalog_item1.jpg";
+import catalogItem2 from "../../assets/images/catalog_item2.jpg";
+import catalogItem3 from "../../assets/images/catalog_item3.jpg";
+import catalogItem4 from "../../assets/images/catalog_item4.jpg";
 
-  export default products;
+export const products = [
+  { id: 1, image: catalogItem1 },
+  { id: 2, image: catalogItem2 },
+  { id: 3, image: catalogItem3 },
+  { id: 4, image: catalogItem4 },
+];
+
+export default products;
