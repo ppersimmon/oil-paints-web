@@ -1,0 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Sen:wght@400..800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sen: "Sen", sans-serif;
+  --font-inter: "Inter", sans-serif;
+  --color-red: #C52020;
+  --color-grey100: #F5F5F5;
+  --color-text: #1E1E1E;
+  --color-text-secondary: #757575;
+  --color-border: rgba(0, 0, 0, 0.0784);
+}
