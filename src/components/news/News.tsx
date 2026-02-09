@@ -3,25 +3,31 @@ import { articles } from "./constants";
 const News = () => {
   return (
     <section className="bg-white py-16">
-      <div className="mx-auto max-w-285 px-5 xl:px-0">
-        <h2 className="text-4xl font-sen font-extrabold text-black">
+      <div className="mx-auto max-w-250 px-5 xl:px-0">
+        <h2 className="font-sen text-2xl font-extrabold text-black lg:text-[40px]">
           News
         </h2>
 
-        <hr className="border-0 h-px bg-border mb-10 mt-8"></hr>
+        <hr className="bg-border mt-8 mb-8 h-px border-0"></hr>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {articles.map((article) => (
-            <div key={article.id} className="border border-border p-5 flex flex-col h-full bg-white">
-              <div className="w-full overflow-hidden mb-5">
-                <img src={article.image} className="w-full h-full object-cover"/>
+            <div
+              key={article.id}
+              className="border-border flex h-full flex-col border bg-white p-10 sm:p-5"
+            >
+              <div className="mb-5 w-full overflow-hidden">
+                <img
+                  src={article.image}
+                  className="h-full w-full object-cover"
+                />
               </div>
-         
-              <p className="text-text-secondary text-sm font-inter mb-6">
+
+              <p className="text-text-secondary font-inter mb-6 text-base">
                 {article.title}
               </p>
-              
-              <button className="text-red font-medium text-sm self-start">
+
+              <button className="text-red mt-auto self-start text-base font-medium">
                 Read More
               </button>
             </div>

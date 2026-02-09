@@ -1,26 +1,19 @@
 import { products } from "./constants";
+import CatalogList from "./CatalogList";
 
 const Catalog = () => {
   return (
-    <section className="bg-black items-center lg:pt-24">
-      <div className="mx-auto max-w-285 py-16 lg:px-0 md:px-24">
+    <section className="sm: items-center bg-black px-5 lg:pt-24">
+      <div className="mx-auto max-w-250 py-16 lg:px-0">
         <div>
-          <h2 className="text-4xl font-sen font-extrabold text-white text-center">
+          <h2 className="font-sen text-center text-2xl font-extrabold text-white lg:text-[40px]">
             View Catalog
           </h2>
         </div>
 
-        <hr className="border-0 h-px bg-white mb-10 mt-8"></hr>
+        <hr className="mt-8 mb-8 h-px border-0 bg-white"></hr>
 
-        <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
-          {products.map((product) => (
-            <div key={product.id} className="flex flex-col group">
-              <div className="px-5 lg:px-0 md:px-24">
-                <img src={product.image} className="w-full h-full" />
-              </div>
-            </div>
-          ))}
-        </div>
+        <CatalogList products={products} />
       </div>
     </section>
   );

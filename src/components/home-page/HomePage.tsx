@@ -6,14 +6,14 @@ import Newsletter from "../newsletter/Newsletter";
 import Mission from "../mission/Mission";
 
 const HomePage = () => (
-    <div>
-        <Hero />
-        <Catalog />
-        <Mission />
-        <Products />
-        <News />
-        <Newsletter />
-    </div>
+  <div>
+    <Hero />
+    <Catalog />
+    <Mission />
+    <Products />
+    <News />
+    <Newsletter />
+  </div>
 );
 
 export default HomePage;

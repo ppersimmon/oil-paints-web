@@ -1,24 +1,31 @@
 import heroBackground from "../../assets/images/backgrounds/hero-background.jpg";
 
 const Hero = () => (
-    <section className="bg-cover bg-center mt-6 mb-12 lg:mb-32 bg-no-repeat w-full" style={{backgroundImage: `url(${heroBackground})`}}>
-        <div className="grid grid-cols-1 px-5 lg:grid-cols-2 mx-auto w-full max-w-285 py-16 lg:px-0 md:px-24">
-            <div className="lg:block lg:col-span-1"></div>
-            <div className="bg-black p-5 flex flex-col items-start gap-y-4 overflow-x-hidden md:p-10">
-                <h1 className="text-3xl leading-tight font-extrabold text-white font-sen wrap-break-words md:text-5xl">
-                    UKRAINIAN MANUFACTURER OF FINE ART MATERIALS
-                </h1>
-                <p className="text- font-regular text-white/70 font-inter">
-                    Ready to bring your vision to life? The perfect canvas is
-                    waiting for you. Turn your creative ideas into reality
-                    with ROSA today.
-                </p>
-                <button className="bg-red text-white px-8 py-2 text-sm font-semibold ">
-                    OUR SHOP
-                </button>
-            </div>
+  <section className="mb-16 flex max-h-150 w-full bg-white lg:mb-40 lg:max-h-180">
+    <div
+      className="absolute left-0 mt-8 h-125 w-full bg-cover bg-center bg-no-repeat lg:mt-15"
+      style={{ backgroundImage: `url(${heroBackground})` }}
+    ></div>
+    <div className="z-10 w-full lg:mt-15">
+      <div className="mx-auto grid h-125 w-full max-w-250 grid-cols-1 items-center px-5 sm:justify-items-center sm:px-24 lg:grid-cols-2 lg:px-0">
+        <div className="lg:col-span-1 lg:block"></div>
+        <div className="flex h-100 flex-col items-start gap-y-4 overflow-x-hidden bg-black p-10 sm:w-115 sm:justify-center lg:w-full">
+          <h1 className="font-sen text-[28px] leading-9 font-extrabold wrap-break-word text-white sm:text-[32px] md:text-[40px]">
+            UKRAINIAN MANUFACTURER OF FINE ART MATERIALS
+          </h1>
+          <p className="font-regular font-inter text-sm text-white/70">
+            Ready to bring your vision to life? The perfect canvas is waiting
+            for you. Turn your creative ideas into reality with
+            <br />
+            ROSA today.
+          </p>
+          <button className="bg-red px-8 py-2 text-sm font-semibold text-white">
+            OUR SHOP
+          </button>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 );
 
 export default Hero;

@@ -6,12 +6,12 @@ import PinterestIcon from "../../assets/icons/pinterest.svg?react";
 const Footer = () => {
   return (
     <footer>
-      <div className="bg-white py-16">
-        <div className="mx-auto max-w-285 px-5 xl:px-0">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-20">
+      <div className="bg-white pt-10 pb-16">
+        <div className="mx-auto max-w-250 px-5 xl:px-0">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:gap-20">
             <div className="flex flex-col">
-              <h3 className="text-text font-bold mb-6">Categories</h3>
-              <ul className="flex flex-col gap-3 text-text text-sm">
+              <h3 className="text-text mb-6 font-bold">Categories</h3>
+              <ul className="text-text flex flex-col gap-3 text-base">
                 <li>
                   <a href="#">ROSA PRODUCTS</a>
                 </li>
@@ -22,40 +22,47 @@ const Footer = () => {
             </div>
 
             <div className="flex flex-col">
-              <h3 className="text-text font-bold mb-6">Contact Information</h3>
-              <div className="text-text flex flex-col gap-4">
-                <p>“ROSA GROUP” LLC , Ukraine, 45400, Volyn region, Novovolynsk,Knyahynia Olha str., 64</p>
-                <p>Call us: +38(067) 332-03-23</p>
-                <p>Email: art@rosa.ua</p>
+              <h3 className="text-text mb-6 font-bold">Contact Information</h3>
+              <div className="text-text flex flex-col gap-4 text-base">
+                <p>
+                  “ROSA GROUP” LLC , Ukraine, 45400, Volyn region,
+                  Novovolynsk,Knyahynia Olha str., 64
+                </p>
+                <span>
+                  Call us: <a>+38(067) 332-03-23</a>
+                </span>
+                <span>
+                  Email: <a>art@rosa.ua</a>
+                </span>
               </div>
             </div>
 
             <div className="flex flex-col">
-              <h3 className="text-gray-900 font-bold mb-6">
+              <h3 className="mb-6 font-bold text-gray-900">
                 Follow Us On Social
               </h3>
               <div className="flex items-center gap-4">
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
+                  className="flex h-8 w-8 items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <FacebookIcon />
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
+                  className="flex h-8 w-8 items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <InstagramIcon />
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
+                  className="flex h-8 w-8 items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <YoutubeIcon />
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
+                  className="flex h-8 w-8 items-center justify-center transition-opacity hover:opacity-80"
                 >
                   <PinterestIcon />
                 </a>
@@ -66,8 +73,8 @@ const Footer = () => {
       </div>
 
       <div className="bg-black py-5">
-        <div className="mx-auto max-w-285 px-5 xl:px-0 text-center">
-          <p className="text-white text-sm font-inter font-light">
+        <div className="mx-auto max-w-285 px-5 text-center xl:px-0">
+          <p className="font-inter text-sm font-light text-white">
             &copy; ROSA, 2026. All rights reserved
           </p>
         </div>
