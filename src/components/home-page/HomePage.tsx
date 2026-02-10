@@ -1,9 +1,9 @@
-import Hero from "../hero/Hero";
-import Catalog from "../catalog/Catalog";
-import Products from "../products/Products";
-import News from "../news/News";
-import Newsletter from "../newsletter/Newsletter";
-import Mission from "../mission/Mission";
+import Hero from "../common/hero/Hero";
+import Catalog from "../common/catalog/Catalog";
+import Products from "../common/products/Products";
+import News from "../common/news/News";
+import Newsletter from "../common/newsletter/Newsletter";
+import Mission from "../common/mission/Mission";
 
 const HomePage = () => (
   <div>

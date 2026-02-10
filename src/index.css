@@ -7,6 +7,9 @@
   --color-red: #c52020;
   --color-grey100: #f5f5f5;
   --color-text: #1e1e1e;
+  --color-text-neutral: #f3f3f3;
   --color-text-secondary: #757575;
   --color-border: rgba(0, 0, 0, 0.0784);
+  --color-icons-grey: #a39e98;
+  --color-border-default: #d9d9d9;
 }
