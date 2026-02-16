@@ -1,4 +1,7 @@
+import { useContactUsForm } from "../../../hooks/useContactUsForm.ts";
+
 const ContactUs = () => {
+  const { formik, serverMessage } = useContactUsForm();
   return (
     <section className="bg-grey100 pt-16 pb-8 lg:py-24">
       <div className="mx-auto w-full max-w-250 px-5 sm:px-12 xl:px-0">
@@ -49,7 +52,15 @@ const ContactUs = () => {
           </div>
 
           <div className="w-full lg:w-1/2">
-            <form className="rounded-lg bg-white p-6 sm:p-8">
+            <form
+              onSubmit={formik.handleSubmit}
+              className="rounded-lg bg-white p-6 sm:p-8"
+            >
+              {serverMessage && (
+                <div className="mb-4 text-center text-sm font-semibold text-green-600">
+                  {serverMessage}
+                </div>
+              )}
               <div className="mb-4">
                 <label className="text-text font-regular mb-2 block text-base">
                   First Name
@@ -57,8 +68,19 @@ const ContactUs = () => {
                 <input
                   type="text"
                   placeholder="First Name"
-                  className="border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base"
+                  autoComplete="off"
+                  {...formik.getFieldProps("name")}
+                  className={`border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base ${
+                    formik.touched.name && formik.errors.name
+                      ? "border-red-500"
+                      : "border-border-default"
+                  }`}
                 />
+                {formik.touched.name && formik.errors.name && (
+                  <div className="mt-1 text-sm text-red-500">
+                    {formik.errors.name}
+                  </div>
+                )}
               </div>
 
               <div className="mb-4">
@@ -68,8 +90,18 @@ const ContactUs = () => {
                 <input
                   type="text"
                   placeholder="+38(067) 123-12-12"
-                  className="border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base"
+                  {...formik.getFieldProps("phone")}
+                  className={`border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base${
+                    formik.touched.phone && formik.errors.phone
+                      ? "border-red-500"
+                      : "border-border-default placeholder-border-default"
+                  }`}
                 />
+                {formik.touched.phone && formik.errors.phone && (
+                  <div className="mt-1 text-sm text-red-500">
+                    {formik.errors.phone}
+                  </div>
+                )}
               </div>
 
               <div className="mb-4">
@@ -79,8 +111,18 @@ const ContactUs = () => {
                 <input
                   type="email"
                   placeholder="email@gmail.com"
-                  className="border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base"
+                  {...formik.getFieldProps("email")}
+                  className={`border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base ${
+                    formik.touched.email && formik.errors.email
+                      ? "border-red-500"
+                      : "border-border-default placeholder-border-default"
+                  }`}
                 />
+                {formik.touched.email && formik.errors.email && (
+                  <div className="mt-1 text-sm text-red-500">
+                    {formik.errors.email}
+                  </div>
+                )}
               </div>
 
               <div className="mb-6">
@@ -90,15 +132,28 @@ const ContactUs = () => {
                 <textarea
                   rows={4}
                   placeholder="Message"
-                  className="border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base"
-                ></textarea>
+                  {...formik.getFieldProps("postMessage")}
+                  className={`border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base ${
+                    formik.touched.postMessage && formik.errors.postMessage
+                      ? "border-red-500"
+                      : "border-border-default placeholder-border-default"
+                  }`}
+                />
+                {formik.touched.postMessage && formik.errors.postMessage && (
+                  <div className="mt-1 text-sm text-red-500">
+                    {formik.errors.postMessage}
+                  </div>
+                )}
               </div>
 
               <button
                 type="submit"
-                className="bg-red w-full rounded-lg py-2 text-base font-semibold text-white"
+                disabled={formik.isSubmitting}
+                className={`bg-red w-full rounded-lg py-2 text-base font-semibold text-white ${
+                  formik.isSubmitting ? "bg-gray-400" : "bg-red"
+                }`}
               >
-                Submit
+                {formik.isSubmitting ? "Submitting..." : "Submit"}
               </button>
             </form>
           </div>
