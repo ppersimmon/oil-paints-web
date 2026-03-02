@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\RedirectResponse;
 use App\Services\ContactUsService;
 use App\Http\Requests\ContactUsStore;
-use Illuminate\View\View;
+use Illuminate\Http\JsonResponse;
 
 class ContactUsController extends Controller
 {
@@ -16,16 +15,13 @@ class ContactUsController extends Controller
         $this->contactUsService = $contactUsService;
     }
 
-    public function create(): View
-    {
-        return view('contact');
-    }
-
-    public function store(ContactUsStore $request): RedirectResponse
+    public function store(ContactUsStore $request): JsonResponse
     {
         $validated = $request->validated();
         $this->contactUsService->processContactUsForm($validated);
-        return redirect()->back()->with('success', 'Your message has been sent.');
+        return response()->json([
+            'message' => 'Your message has been sent.',
+            'data' => $validated
+        ], 201);
     }
-
 }

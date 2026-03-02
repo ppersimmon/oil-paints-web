@@ -2,31 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Interfaces\ProductsI;
-use Illuminate\View\View;
+use App\Models\Product;
+use Illuminate\Http\JsonResponse;
 
 class ProductController extends Controller
 {
-    protected ProductsI $productRepository;
 
-    public function __construct(ProductsI $productRepository)
+    public function index(): JsonResponse
     {
-        $this->productRepository = $productRepository;
+        $products = Product::with(['category', 'tags'])->get();
+        return response()->json($products);
     }
 
-    public function index(): View
+    public function show(Product $product): JsonResponse
     {
-        $products = $this->productRepository->getProducts();
-        return view('products.index', compact('products'));
+        $product->load(['category', 'tags']);
+        return response()->json($product);
     }
-
-    public function show($id): View
-    {
-        $product = $this->productRepository->findById((int)$id);
-        if (!$product) {
-            abort(404);
-        }
-        return view('products.show', compact('product'));
-    }
-
 }

@@ -17,7 +17,7 @@ const Header = () => {
 
           <div className="justify-self-center">
             <Link to="/">
-              <img src={logoImg} className="h-12 w-16" />
+              <img src={logoImg} className="h-12 w-16" alt={"logo ROSA"} />
             </Link>
           </div>
 
@@ -32,7 +32,7 @@ const Header = () => {
 
         <div className="hidden items-center justify-between py-4 lg:flex">
           <Link to="/" className="shrink-0">
-            <img src={logoImg} className="h-10 w-auto" />
+            <img src={logoImg} className="h-10 w-auto" alt={"logo ROSA"} />
           </Link>
 
           <nav className="flex gap-x-8">

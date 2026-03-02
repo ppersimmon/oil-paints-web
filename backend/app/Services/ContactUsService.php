@@ -2,19 +2,12 @@
 
 namespace App\Services;
 
-use App\Repositories\Interfaces\ContactUsI;
+use App\Models\Message;
 
 class ContactUsService
 {
-    protected ContactUsI $contactUsI;
-
-    public function __construct(ContactUsI $contactUsI)
+    public function processContactUsForm(array $data): void
     {
-        $this->contactUsI = $contactUsI;
-    }
-
-    public function processContactUsForm(array $data): bool
-    {
-        return $this->contactUsI->store($data);
+        Message::query()->create($data);
     }
 }

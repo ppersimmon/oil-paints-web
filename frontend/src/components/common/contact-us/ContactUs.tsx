@@ -132,16 +132,16 @@ const ContactUs = () => {
                 <textarea
                   rows={4}
                   placeholder="Message"
-                  {...formik.getFieldProps("postMessage")}
+                  {...formik.getFieldProps("message")}
                   className={`border-border-default font-regular placeholder-border-default w-full resize-none rounded-lg border px-4 py-2 text-base ${
-                    formik.touched.postMessage && formik.errors.postMessage
+                    formik.touched.message && formik.errors.message
                       ? "border-red-500"
                       : "border-border-default placeholder-border-default"
                   }`}
                 />
-                {formik.touched.postMessage && formik.errors.postMessage && (
+                {formik.touched.message && formik.errors.message && (
                   <div className="mt-1 text-sm text-red-500">
-                    {formik.errors.postMessage}
+                    {formik.errors.message}
                   </div>
                 )}
               </div>

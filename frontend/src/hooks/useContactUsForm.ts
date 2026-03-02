@@ -14,7 +14,7 @@ export const useContactUsForm = () => {
     email: Yup.string()
       .email("Invalid email address format")
       .required("Email is required"),
-    postMessage: Yup.string().max(40).required("Message is required"),
+    message: Yup.string().max(255).required("Message is required"),
   });
 
   const formik = useFormik({
@@ -22,7 +22,7 @@ export const useContactUsForm = () => {
       name: "",
       phone: "",
       email: "",
-      postMessage: "",
+      message: "",
     },
     validationSchema: FormSchema,
     onSubmit: async (values, { setSubmitting, resetForm }) => {
@@ -34,9 +34,16 @@ export const useContactUsForm = () => {
       });
 
       try {
-        const response = await axios.post(import.meta.env.VITE_API_URL, form, {
-          withCredentials: true,
-        });
+        const response = await axios.post(
+          `${import.meta.env.VITE_API_URL}/contact`,
+          values,
+          {
+            headers: {
+              Accept: "application/json",
+              "Content-Type": "application/json",
+            },
+          },
+        );
 
         setServerMessage(response.data.message || "Form was sent");
         resetForm();

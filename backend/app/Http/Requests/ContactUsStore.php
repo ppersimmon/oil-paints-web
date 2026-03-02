@@ -17,7 +17,7 @@ class ContactUsStore extends FormRequest
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email:rfc,dns', 'max:255'],
             'phone' => ['required', 'string', 'regex:/^\+?[1-9]\d{9,14}$/'],
-            'postMessage' => ['required', 'string', 'max:255'],
+            'message' => ['required', 'string', 'max:255'],
         ];
     }
 
@@ -29,7 +29,7 @@ class ContactUsStore extends FormRequest
             'phone.regex' => 'invalid phone',
             'email.email' => 'Invalid email',
             'email.required' => 'Email is required',
-            'postMessage.required' => 'Message is required',
+            'message.required' => 'Message is required',
         ];
     }
 }
