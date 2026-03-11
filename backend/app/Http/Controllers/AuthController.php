@@ -2,24 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\ValidationException;
 use App\Http\Requests\RegisterStore;
 use App\Http\Requests\LoginStore;
 use App\Http\Resources\UserResource;
+use App\Services\AuthService;
 
 class AuthController extends Controller
 {
+    public function __construct(
+        protected AuthService $authService
+    ) {}
     public function register(RegisterStore $request): JsonResponse
     {
-        $validated = $request->validated();
-        $user = User::query()->create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
+        $user = $this->authService->register($request->validated());
 
         return response()->json([
             'user' => new UserResource($user),
@@ -29,14 +25,7 @@ class AuthController extends Controller
 
     public function login(LoginStore $request): JsonResponse
     {
-        $validated = $request->validated();
-        $user = User::query()->where('email', $validated['email'])->first();
-
-        if (!$user || !Hash::check($validated['password'], $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['Wrong data'],
-            ]);
-        }
+        $user = $this->authService->login($request->validated());
 
         return response()->json([
             'user' => new UserResource($user),
